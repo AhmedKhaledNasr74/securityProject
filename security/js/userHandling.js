@@ -2,7 +2,7 @@
 
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+myHeaders.append('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
 
 let requestOptions = {
     method: "GET",

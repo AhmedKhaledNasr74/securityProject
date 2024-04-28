@@ -1,5 +1,5 @@
 function logout(){
-    if(localStorage.getItem("token"))
-        localStorage.clear();
+    if(sessionStorage.getItem("token"))
+        sessionStorage.clear();
     window.location.href="login.html";
 }

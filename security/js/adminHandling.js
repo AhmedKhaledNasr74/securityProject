@@ -1,7 +1,7 @@
 let url = 'http://localhost:8585/tasks/admin/add';
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-myHeaders.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+myHeaders.append('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
 
 let requestOptions = {
     method: "GET",
@@ -10,7 +10,7 @@ let requestOptions = {
     // body:"",
 };
 
-let renderTasks = function ( ){
+let renderTasks = function (){
     requestOptions.method='GET';
     if (requestOptions.hasOwnProperty('body')) {
         // Delete the body property
@@ -45,7 +45,6 @@ let putTask = function (task,isDone){
         </td>
     </tr>`
     taskList.innerHTML += taskDocument;
-
 }
 
 let deleteTask = function(id){
@@ -75,6 +74,11 @@ let editTask = function(id){
         });
 }
 
+let addButton = document.querySelector(".addButton");
+
+    addButton.addEventListener("click", function(event) {
+        event.preventDefault();
+    });
 
 function addTask(){
     let newName = document.querySelector("#taskName");

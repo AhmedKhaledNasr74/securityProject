@@ -31,7 +31,7 @@ submitLogin.addEventListener("click", function(event) {
         return response.text()
     })
     .then((result) => {
-        localStorage.setItem('token', result); // Store the token in local storage
+        sessionStorage.setItem('token', result); // Store the token in local storage
         // Decode and extract data from the JWT token
         return decodedToken = parseJwt(result);
     }).then((decodedToken) =>{
