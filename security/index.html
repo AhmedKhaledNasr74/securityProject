@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task management</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/admin.css">
+<!-- Custom CSS -->
+<style>
+    body {
+    margin: 20px;
+    }
+    .task-name {
+    max-width: 200px; /* Limit the width of task name */
+    word-wrap: break-word; /* Wrap long names onto the next line */
+    }
+    .actions {
+    white-space: nowrap; /* Prevent buttons from wrapping onto next line */
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="firstSection" style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Task Management</h1>
+        <div class="logOutSection">
+            <button class="logOut btn btn-danger " onclick="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <hr>
+
+    <!-- Form to add new task -->
+    <form id="taskForm">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="task Name" id="taskName" required>
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" placeholder="Deadline" id="deadline" required>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="addTask()" >Add task</button>
+    </form>
+    <hr>
+
+    <!-- task table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Task Id</th>
+            <th>Name</th>
+            <th>Deadline</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="taskList"></tbody>
+    </table>
+    
+</div>
+    
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="newName" id="newName" required>
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" placeholder="newDeadline" id="newDeadline" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="editButton">Save changes</button>
+        </div>
+    </div>
+    </div>
+</div>    
+    
+<!-- Bootstrap JS, jQuery, and Custom JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/adminHandling.js"></script>
+<script src="js/allHandel.js"></script>
+</body>
+</html>
