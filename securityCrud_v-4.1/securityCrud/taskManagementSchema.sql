@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS `userinfo`;
 
 CREATE TABLE `userinfo` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) DEFAULT NULL,
+  `name` varchar(200) not null unique,
   `password` varchar(200) DEFAULT NULL,
   `roles` varchar(200) DEFAULT 'ROLE_USER',
   PRIMARY KEY (`id`)
