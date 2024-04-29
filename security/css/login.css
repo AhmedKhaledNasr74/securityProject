@@ -102,6 +102,22 @@ body {
     color: #039BE5;
 }
 
+.warning{
+    color: red;
+    text-align: center;
+    padding: 8px 20px;
+    border: solid 2px rgb(241, 129, 129);
+    width: fit-content;
+    margin: 10px auto 0px ;
+    border-radius: 5px;
+    background-color: rgb(244, 223, 223);
+    display: none;
+}
+
+.visible{
+    display: block;
+}
+
 @media(max-width: 380px) {
     .wrapper {
         margin: 30px 20px;

@@ -1,3 +1,13 @@
+    let today = new Date();
+    let day = String(today.getDate()).padStart(2, '0');
+    let month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    let year = today.getFullYear();
+
+    today = year + '-' + month + '-' + day;
+
+    // Set the min attribute of the date input to today's date
+    document.getElementById("deadline").min = today;
+
 let url = 'http://localhost:8585/tasks/admin/add';
 const myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -85,6 +95,9 @@ function addTask(){
     let newDeadline = document.querySelector("#deadline");
     let url =  `http://localhost:8585/tasks/admin/add`;
     makeTransaction(newName, newDeadline , url ,'POST' );
+    newName.value='';
+    newDeadline.value ='';
+
 }
 
 

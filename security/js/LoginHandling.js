@@ -1,5 +1,3 @@
-let url = 'http://localhost:8585/auth/signIn';
-
 
 let submitLogin = document.querySelector(".submitLogin");
 submitLogin.addEventListener("click", function(event) {
@@ -26,6 +24,12 @@ submitLogin.addEventListener("click", function(event) {
     fetch("http://localhost:8585/auth/signIn", requestOptions)
     .then((response) => {
         if(response.status>=400 && response.status<=499 ){
+            let warning = document.querySelector(".warning");
+            if(usernameInput==""||passwordInput=="")
+                warning.innerHTML="Please fill all the data";
+            else
+                warning.innerHTML="Wrong Email or Password";
+            warning.classList.add("visible");
             throw new Error("wrong data");
         }
         return response.text()
