@@ -19,7 +19,7 @@ public class TaskController {
     private TaskService taskService;
 
     // Endpoint to add a new task
-    @PostMapping("/admin/add")
+    @PostMapping("/admin/add")///////////////////////////////////////////////////
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<Task> addTask(@RequestBody Task task) {
         Task addedTask = taskService.addTask(task);
@@ -27,7 +27,7 @@ public class TaskController {
     }
 
     // Endpoint to edit an existing task
-    @PutMapping("/admin/edit/{taskId}")
+    @PutMapping("/admin/edit/{taskId}")///////////////////////////////////////////////////
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<Task> editTask(@PathVariable int taskId, @RequestBody Task task) {
         Task editedTask = taskService.editTask(taskId, task);
@@ -65,10 +65,10 @@ public class TaskController {
     }
 
     // Endpoint to get a task by its id
-    @GetMapping("/admin/{taskId}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<Task> getTaskById(@PathVariable int taskId) {
-        Task task = taskService.getTaskById(taskId);
-        return new ResponseEntity<>(task, HttpStatus.OK);
-    }
+//    @GetMapping("/admin/{taskId}")
+//    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+//    public ResponseEntity<Task> getTaskById(@PathVariable int taskId) {
+//        Task task = taskService.getTaskById(taskId);
+//        return new ResponseEntity<>(task, HttpStatus.OK);
+//    }
 }

@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @RestController
 @RequestMapping("/auth")
@@ -39,24 +37,6 @@ public class UserController {
 
     @PostMapping("/signUp")
     public String addNewUser(@RequestBody UserInfo userInfo) {
-        if( ( userInfo.getName() == null ) || ( userInfo.getPassword() == null ) )
-            return "email or password can't be empty !";
-        String regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(userInfo.getName());
-        if (!matcher.matches()){
-            return "InValid email !";
-        }
-        if( ( !userInfo.getRoles().equals("ROLE_USER") ) && ( !userInfo.getRoles().equals( "ROLE_ADMIN" ) ) ){
-            return "InValid Role !";
-        }
-        Optional<UserInfo> user =  userInfoRepository.findByName(userInfo.getName());
-        if( user.isPresent() ){
-            return "User is Already Exist !";
-        }
-        if( userInfo.getPassword().length() < 8 ){
-            return "password length must be at least 8 characters !";
-        }
         return service.addUser(userInfo);
     }
 
@@ -72,7 +52,7 @@ public class UserController {
             throw new UsernameNotFoundException("invalid user request !");
         }
     }
-//test end points
+//test end point
 
 //    @GetMapping("/user/userProfile")
 //    @PreAuthorize("hasAnyRole('ROLE_USER')")

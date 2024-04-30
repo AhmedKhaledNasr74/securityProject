@@ -1,6 +1,9 @@
 package com.JWT_firstTest.securityCrud.service;
 
+//import com.JWT_firstTest.securityCrud.config.StringCryptoConverter;
 import com.JWT_firstTest.securityCrud.entity.UserInfo;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Converter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
